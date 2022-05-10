@@ -37,3 +37,6 @@ out/
 .vscode/
 
 src/main/resources/application.properties
+*.sql
+*.sql.example
+src/main/resources/application.properties
