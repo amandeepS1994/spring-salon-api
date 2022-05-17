@@ -18,6 +18,9 @@ server.servlet.context-path=/salon
 springdoc.swagger-ui.path=/swagger-ui.html
 springdoc.api-docs.path=/api-docs
 
+#Cors allowed origins
+application.cors.allowedOrigins=http://localhost:3000
+
 
 
 
