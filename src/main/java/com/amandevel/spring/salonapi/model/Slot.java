@@ -33,4 +33,6 @@ public class Slot {
     private SlotStatus status;
     private LocalDateTime lockedAt;
     private LocalDateTime confirmedAt;
+    @OneToOne(mappedBy = "slot", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Payment payment;
 }

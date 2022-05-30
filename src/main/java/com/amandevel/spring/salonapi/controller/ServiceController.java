@@ -6,9 +6,11 @@ import java.util.Objects;
 
 import com.amandevel.spring.salonapi.model.SalonServiceDetail;
 import com.amandevel.spring.salonapi.model.Slot;
+import com.amandevel.spring.salonapi.model.dto.SalonServiceDetailDTO;
 import com.amandevel.spring.salonapi.model.response.ApiResponse;
 import com.amandevel.spring.salonapi.service.SalonService;
 import com.amandevel.spring.salonapi.service.SlotService;
+import com.amandevel.spring.salonapi.utility.ObjectMapperUtil;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -21,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController()
 @RequestMapping("service/")
@@ -36,8 +37,8 @@ public class ServiceController {
     }
 
     @GetMapping("available/")
-    public ResponseEntity<ApiResponse<List<SalonServiceDetail>>> retrieveSalonDetails () {
-        return new ResponseEntity<>(new ApiResponse(true, salonService.retrieveAllSalonServices()), HttpStatus.ACCEPTED);
+    public ResponseEntity<ApiResponse<List<SalonServiceDetailDTO>>> retrieveSalonDetails () {
+        return new ResponseEntity<>(new ApiResponse(true, ObjectMapperUtil.mapAllEntities(salonService.retrieveAllSalonServices(), SalonServiceDetailDTO.class)), HttpStatus.ACCEPTED);
 
     }
 
