@@ -6,6 +6,7 @@ import com.amandevel.spring.salonapi.service.SalonService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SalonServiceImplementation implements SalonService {
@@ -20,5 +21,15 @@ public class SalonServiceImplementation implements SalonService {
     @Override
     public List<SalonServiceDetail> retrieveAllSalonServices() {
         return salonServiceDetailRepository.findAll();
+    }
+
+    @Override
+    public boolean checkServiceExists(long serviceId) {
+        return salonServiceDetailRepository.existsById(serviceId);
+    }
+
+    @Override
+    public Optional<SalonServiceDetail> retrieveSalonServiceDetailById(Long serviceId) {
+        return salonServiceDetailRepository.findById(serviceId);
     }
 }

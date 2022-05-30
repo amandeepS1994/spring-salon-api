@@ -1,7 +1,5 @@
 package com.amandevel.spring.salonapi.model;
 
-import javax.persistence.Entity;
-
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 
